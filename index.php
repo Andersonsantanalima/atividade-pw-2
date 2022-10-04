@@ -85,8 +85,11 @@
       elseif(isset($_GET['perfil']) && isset($_SESSION['user_logado'])){
         require_once 'view/usuario_perfil.php';
       }
-      elseif(isset($_GET['home']) && isset($_SESSION['user_logado'])){
+      elseif(isset($_GET['home'])){
         require_once 'view/home.php';
+      }
+      elseif(isset($_GET['usuario_perfil'])){
+        require_once 'view/usuario_conexao.php';
       }
       else{
         require_once 'view/home.php';

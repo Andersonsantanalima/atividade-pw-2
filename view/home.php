@@ -17,7 +17,7 @@ require_once 'Conexao.php';
                             <img class = "card-img-top" src="'.$usuario->link.'">
                             <div class = "card-body";>
                             <h5 class = "card-title">'.$usuario->nome.'</h5>
-                            <a href="usuario_perfil" class="btn btn-primary">Ver perfil</a>
+                            <a href="?usuario_perfil='.$usuario->email.'&nome='.$usuario->nome.'" class="btn btn-primary">Ver perfil</a>
                             </div>
                          </div>';
                         }
