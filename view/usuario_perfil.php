@@ -27,14 +27,32 @@ if(isset($_POST['btnImg'])){
         
 }
 
+if(isset($_POST['btnDelete'])){
+    $cmdSql = 'CALL imagem_Delet(:link)';
+    $link = $_POST['btnDelete'];
+
+    $cxPreparado = $cx->Prepare($cmdSql);
+    if(!$cxPreparado->execute([':link'=>$link])){
+        echo'<div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Cadastro</h4>
+        <p>Erro ao cadastrar imagem</p>
+    </div>';
+    }
+}
+
 ?>
 <div class="container">
-    <h2>Seja bem vindo: <?php echo $usuario->nome; ?></h2>
+    <h4 class="text-secondary">E aí <?php echo $usuario->nome; ?>, que tal postar suas fotos favoritas?</h4 class="text-secondary">
 
     <form method="POST" class="form-inline" enctype="multipart/form-data"> 
         <input type="file" class="form-control" name="foto" >            
         <button type="submit" name="btnImg" class="btn btn-primary form-control">Enviar IMG</button>
     </form>
+    <form method="POST" class="form-inline" enctype="multipart/form-data"> 
+        <input type="file" class="form-control" name="foto" >            
+        <button type="submit" name="btnImg" class="btn btn-primary form-control">editar perfil</button>
+    </form>
+
 
     <fieldset>
         <legend>Minha fotos</legend>
@@ -47,7 +65,14 @@ if(isset($_POST['btnImg'])){
                         $fotos = $cxPronta->fetchAll(PDO::FETCH_OBJ);
                         foreach ($fotos as $foto) {
                             echo'<div class="card">
-                                    <img class="card-img-top" src="'.$foto->link.'">                
+                                    <img class="card-img-top" src="'.$foto->link.'">
+                                    <form method="post">
+                                        <button 
+                                            type="submit"
+                                            value="'.$foto->link.'"
+                                            name="btnDelete"
+                                        >DELETE</button>
+                                    </form>
                                 </div>';
                         }
                     }

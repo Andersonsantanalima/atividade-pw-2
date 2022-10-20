@@ -5,7 +5,7 @@
         $senha = $_POST['txtSenha'];
         $nome = $_POST['txtNome'];
         
-        $cmdSql = "INSERT INTO usuario VALUES (:email,:senha,:nome)";
+        $cmdSql = "INSERT INTO usuario (email, senha, nome) VALUES (:email,:senha,:nome)";
         $dados = [
             ':email' => $email,
             ':senha' => $senha,
