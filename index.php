@@ -56,12 +56,19 @@
         <?php
         if(isset($_SESSION['user_logado'])){
           echo '
-            <form class="form-inline" method="POST">
-              <a href="?perfil">
+            <div="form-inline">
+              <a href="?usuario_perfil">
                 <label for="">'.$_SESSION['user_logado']->nome.'</label>
               </a>
-              <button class="btn btn-outline-primary mx-2  my-0" name="btnSair" type="submit">Sair</button>
-            </form>
+              <form method="POST">
+              button class="btn btn-outline-primary mx-2  my-0" name="btndekl" type="submit">Sair</button>
+              </form>
+
+              <form method="POST">
+              <button class="btn btn-outline-primary mx-2  my-0" name="btnexcluir" type="submit">excluir</button>
+
+              </form>       
+            </div>
           ';
         }
         else{

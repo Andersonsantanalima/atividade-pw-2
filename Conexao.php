@@ -1,6 +1,6 @@
 <?php
 define('HOST','localhost');
-define('DB','aula_avacada');
+define('DB','aula_avancada');
 define('USER','root');
 define('PASSW', '');
 

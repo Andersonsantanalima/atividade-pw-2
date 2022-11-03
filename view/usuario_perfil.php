@@ -38,7 +38,20 @@ if(isset($_POST['btnDelete'])){
         <p>Erro ao cadastrar imagem</p>
     </div>';
     }
+}else if(isset($_POST['btnDeleteUsu'])){
+    $cmdSql = 'CALL usuario_Delet(:email)';
+    $link = $_POST['btnDeleteusu'];
+
+    $cxPreparado = $cx->Prepare($cmdSql);
+    if(!$cxPreparado->execute([':link'=>$link])){
+        echo'<div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Cadastro</h4>
+        <p>Erro ao cadastrar imagem</p>
+    </div>';
+    }
 }
+
+
 
 ?>
 <div class="container">
